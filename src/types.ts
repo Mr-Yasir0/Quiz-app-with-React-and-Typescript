@@ -4,6 +4,7 @@ export type Quiz = {
   question: string;
   correct_answer: string;
   incorrect_answers: string[];
+  answer: string;
 };
 export type cardType = {
   question: string;

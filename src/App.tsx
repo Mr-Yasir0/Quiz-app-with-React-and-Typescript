@@ -5,11 +5,14 @@ import { getQuizDetails } from "./services/api";
 import { Quiz } from "./types";
 function App() {
   const [quiz, setQuiz] = useState<any>([]);
+  let [score, setScore] = useState<any>(0);
   let [currentQuiz, setCurrentQuiz] = useState(0);
+  const ans = quiz[currentQuiz].answer;
 
   const handleSubmit = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
-    if (currentQuiz !== quiz.lenth - 1) setCurrentQuiz(++currentQuiz);
+    // if (quiz[currentQuiz].answer === ans) setScore(++score);
+    if (currentQuiz !== quiz.length - 1) setCurrentQuiz(++currentQuiz);
     else {
       alert("completed");
       setCurrentQuiz(0);
@@ -22,7 +25,7 @@ function App() {
     }
     fetchData();
   }, []);
-
+  console.log(ans, score);
   if (!quiz.length)
     return (
       <>
